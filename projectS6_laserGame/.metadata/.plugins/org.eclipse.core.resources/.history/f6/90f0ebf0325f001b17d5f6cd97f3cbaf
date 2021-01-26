@@ -1,0 +1,27 @@
+/*
+ * main.h
+ *
+ *  Created on: 5 août 2017
+ *      Author: Laurent
+ */
+
+#include "stm32f0xx.h"
+
+#ifndef APP_INC_MAIN_H_
+#define APP_INC_MAIN_H_
+
+
+#define LASER1 1500
+#define LASER2 2000
+#define LASER3 2500
+#define LASER4 1000
+
+/*
+ * printf() and sprintf() from printf-stdarg.c
+ */
+
+int my_printf	(const char *format, ...);
+int my_sprintf	(char *out, const char *format, ...);
+
+
+#endif /* APP_INC_MAIN_H_ */
