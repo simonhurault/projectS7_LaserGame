@@ -171,44 +171,44 @@ void BSP_Console_Init()
 
 	// Setup RX on DMA Channel 5
 
-		// Start DMA clock
-		RCC->AHBENR |= RCC_AHBENR_DMA1EN;
+	// Start DMA clock
+	RCC->AHBENR |= RCC_AHBENR_DMA1EN;
 
-		// Reset DMA1 Channel 5 configuration
-		DMA1_Channel5->CCR = 0x00000000;
+	// Reset DMA1 Channel 5 configuration
+	DMA1_Channel5->CCR = 0x00000000;
 
-		// Set direction Peripheral -> Memory
-		DMA1_Channel5->CCR &= ~DMA_CCR_DIR;
+	// Set direction Peripheral -> Memory
+	DMA1_Channel5->CCR &= ~DMA_CCR_DIR;
 
-		// Peripheral is USART2 RDR
-		DMA1_Channel5->CPAR = (uint32_t)&USART2->RDR;
+	// Peripheral is USART2 RDR
+	DMA1_Channel5->CPAR = (uint32_t)&USART2->RDR;
 
-		// Peripheral data size is 8-bit (byte)
-		DMA1_Channel5->CCR |= (0x00 <<DMA_CCR_PSIZE_Pos);
+	// Peripheral data size is 8-bit (byte)
+	DMA1_Channel5->CCR |= (0x00 <<DMA_CCR_PSIZE_Pos);
 
-		// Disable auto-increment Peripheral address
-		DMA1_Channel5->CCR &= ~DMA_CCR_PINC;
+	// Disable auto-increment Peripheral address
+	DMA1_Channel5->CCR &= ~DMA_CCR_PINC;
 
-		// Memory is rx_dma_buffer
-		DMA1_Channel5->CMAR = (uint32_t)rx_dma_buffer;
+	// Memory is rx_dma_buffer
+	DMA1_Channel5->CMAR = (uint32_t)rx_dma_buffer;
 
-		// Memory data size is 8-bit (byte)
-		DMA1_Channel5->CCR |= (0x00 <<DMA_CCR_MSIZE_Pos);
+	// Memory data size is 8-bit (byte)
+	DMA1_Channel5->CCR |= (0x00 <<DMA_CCR_MSIZE_Pos);
 
-		// Enable auto-increment Memory address
-		DMA1_Channel5->CCR |= DMA_CCR_MINC;
+	// Enable auto-increment Memory address
+	DMA1_Channel5->CCR |= DMA_CCR_MINC;
 
-		// Set Memory Buffer size
-		DMA1_Channel5->CNDTR = 4;
+	// Set Memory Buffer size
+	DMA1_Channel5->CNDTR = 4;
 
-		// DMA mode is circular
-		DMA1_Channel5->CCR |= DMA_CCR_CIRC;
+	// DMA mode is circular
+	DMA1_Channel5->CCR |= DMA_CCR_CIRC;
 
-		// Enable DMA HT et TC interrupts
-		DMA1_Channel5->CCR |= DMA_CCR_TCIE;
+	// Enable DMA HT et TC interrupts
+	DMA1_Channel5->CCR |= DMA_CCR_TCIE;
 
-		// Enable DMA1 Channel 5
-		DMA1_Channel5->CCR |= DMA_CCR_EN;
+	// Enable DMA1 Channel 5
+	DMA1_Channel5->CCR |= DMA_CCR_EN;
 
 	// Enable USART2 DMA Request on RX
 	USART2->CR3 |= USART_CR3_DMAR;
@@ -314,6 +314,7 @@ void BSP_PB13_Init()
 
 	// Disable PB13 Pull-up/Pull-down
 	GPIOB->PUPDR &= ~GPIO_PUPDR_PUPDR13_Msk;
+	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR13_0;
 
 	// Enable SYSCFG clock
 	RCC->APB2ENR |= RCC_APB2ENR_SYSCFGEN;
@@ -337,6 +338,7 @@ void BSP_PB13_Init()
  * Channel 1 -> PB4 (AF1)
  */
 
+extern uint8_t pwm_dma_buffer[10];
 void BSP_TIMER_IC_Init()
 {
 	// Enable GPIOB clock
@@ -349,21 +351,6 @@ void BSP_TIMER_IC_Init()
 	// Set PB4 to AF1 (TIM3_CH1)
 	GPIOB->AFR[0] &= ~(0x000F0000);
 	GPIOB->AFR[0] |=  (0x00010000);
-
-
-	/*
-	// Select Port B as interrupt source for EXTI line 4
-	SYSCFG->EXTICR[3] &= ~ SYSCFG_EXTICR2_EXTI4_Msk;
-	SYSCFG->EXTICR[3] |=   SYSCFG_EXTICR2_EXTI4_PB;
-
-	// Enable EXTI line 4
-	EXTI->IMR |= EXTI_IMR_IM4;
-
-	// Disable Rising / Enable Falling trigger
-	EXTI->RTSR &= ~EXTI_RTSR_RT4;
-	EXTI->FTSR |=  EXTI_FTSR_FT4;
-
-*/
 
 	// Enable TIM3 clock
 	RCC -> APB1ENR |= RCC_APB1ENR_TIM3EN;
@@ -381,35 +368,78 @@ void BSP_TIMER_IC_Init()
 	TIM3->ARR = (uint16_t) 0xFFFF;
 
 	// Setup Input Capture
-		TIM3->CCMR1 = 0x0000;
-		TIM3->CCMR2 = 0x0000;
+	TIM3->CCMR1 = 0x0000;
+	TIM3->CCMR2 = 0x0000;
 
-		// Channel 1 input on TI1
-		TIM3->CCMR1 |= (0x01 <<TIM_CCMR1_CC1S_Pos);
+	// Channel 1 input on TI1
+	TIM3->CCMR1 |= (0x01 <<TIM_CCMR1_CC1S_Pos);
 
-		// Channel 2 input also on TI1
-		TIM3->CCMR1 |= (0x02 <<TIM_CCMR1_CC2S_Pos);
+	// Channel 2 input also on TI1
+	TIM3->CCMR1 |= (0x02 <<TIM_CCMR1_CC2S_Pos);
 
-		// Filter with N=8
-		TIM3->CCMR1 |= (0x03 <<TIM_CCMR1_IC1F_Pos) | (0x03 <<TIM_CCMR1_IC2F_Pos);
+	// Filter with N=8
+	TIM3->CCMR1 |= (0x03 <<TIM_CCMR1_IC1F_Pos) | (0x03 <<TIM_CCMR1_IC2F_Pos);
 
-		// Select rising edge for channel 1
-		TIM3->CCER |= (0x00 <<TIM_CCER_CC1NP_Pos) | (0x00 <<TIM_CCER_CC1P_Pos);
+	// Select rising edge for channel 1
+	TIM3->CCER |= (0x00 <<TIM_CCER_CC1NP_Pos) | (0x00 <<TIM_CCER_CC1P_Pos);
 
-		// Select falling edge for channel 2
-		TIM3->CCER |= (0x00 <<TIM_CCER_CC2NP_Pos) | (0x01 <<TIM_CCER_CC2P_Pos);
+	// Select falling edge for channel 2
+	TIM3->CCER |= (0x00 <<TIM_CCER_CC2NP_Pos) | (0x01 <<TIM_CCER_CC2P_Pos);
 
-		// Enable capture on channel 1 & channel 2
-		TIM3->CCER |= (0x01 <<TIM_CCER_CC1E_Pos) | (0x01 <<TIM_CCER_CC2E_Pos);
+	// Enable capture on channel 1 & channel 2
+	TIM3->CCER |= (0x01 <<TIM_CCER_CC1E_Pos) | (0x01 <<TIM_CCER_CC2E_Pos);
 
-		// Choose Channel 1 as trigger input
-		TIM3->SMCR |= (0x05 <<TIM_SMCR_TS_Pos);
+	// Choose Channel 1 as trigger input
+	TIM3->SMCR |= (0x05 <<TIM_SMCR_TS_Pos);
 
-		// Slave mode -> Resets counter when trigger occurs
-		TIM3->SMCR |= (0x4 <<TIM_SMCR_SMS_Pos);
+	// Slave mode -> Resets counter when trigger occurs
+	TIM3->SMCR |= (0x4 <<TIM_SMCR_SMS_Pos);
 
-		// Enable TIM3
-		TIM3->CR1 |= TIM_CR1_CEN;
+
+
+	// Setup DMA config for tim3
+
+	// Start DMA clock
+	RCC->AHBENR |= RCC_AHBENR_DMA1EN;
+
+	// Reset DMA1 Channel 4 configuration
+	DMA1_Channel4->CCR = 0x00000000;
+
+	// Set direction Peripheral -> Memory
+	DMA1_Channel4->CCR &= ~DMA_CCR_DIR;
+
+	// Peripheral is TIM3 channel 1
+	DMA1_Channel4->CPAR = (uint32_t) (&(TIM3->CCR1));
+
+	// Peripheral data size is 8-bit (byte)
+	DMA1_Channel4->CCR |= (0x00 <<DMA_CCR_PSIZE_Pos);
+
+	// Disable auto-increment Peripheral address
+	DMA1_Channel4->CCR &= ~DMA_CCR_PINC;
+
+	// Memory is rx_dma_buffer
+	DMA1_Channel4->CMAR = (uint32_t)pwm_dma_buffer;
+
+	// Memory data size is 8-bit (byte)
+	DMA1_Channel4->CCR |= (0x00 <<DMA_CCR_MSIZE_Pos);
+
+	// Enable auto-increment Memory address
+	DMA1_Channel4->CCR |= DMA_CCR_MINC;
+
+	// Set Memory Buffer size
+	DMA1_Channel4->CNDTR = 20;
+
+	// DMA mode is circular
+	DMA1_Channel4->CCR |= DMA_CCR_CIRC;
+
+	// Enable DMA HT et TC interrupts
+	DMA1_Channel4->CCR |= DMA_CCR_HTIE | DMA_CCR_TCIE;
+
+	// Enable DMA1 Channel 5
+	DMA1_Channel4->CCR |= DMA_CCR_EN;
+
+	// Enable TIM3
+	TIM3->CR1 |= TIM_CR1_CEN;
 
 }
 
@@ -433,6 +463,10 @@ void BSP_NVIC_Init()
 
 	// Enable DMA1_Channel5 interrupts
 	NVIC_EnableIRQ(DMA1_Channel4_5_6_7_IRQn);
+
+	// Interrupts for pwm dma transfer
+	NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
+	NVIC_SetPriority(DMA1_Channel2_3_IRQn,3);
 }
 
 

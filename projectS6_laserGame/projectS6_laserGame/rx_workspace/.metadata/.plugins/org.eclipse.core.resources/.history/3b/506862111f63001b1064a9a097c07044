@@ -1,0 +1,244 @@
+/*
+ * main.c
+ *
+ *  Created on: 26/01/2021
+ *      Authors: Simon Hurault
+ *      		 Guillaume Costes
+ *      		 Thomas Grosse
+ *
+ *  This code should be used to analyse the laser PWM value on PA9
+ *	Results are send by UART2 using my_printf function
+ *	The data are the PWM values
+ *	There is also a tx part for debugging with only 1 board delete if you want pure rx
+ *	For tx info refer to tx doc
+ */
+
+
+#include "stm32f0xx.h"
+#include "bsp.h"
+#include "delay.h"
+
+// Static functions
+
+static void SystemClock_Config(void);
+static uint32_t power(uint32_t number, uint32_t power_wanted);
+
+// Global variables
+uint8_t counter_value;
+uint16_t value;
+uint8_t flag;
+
+uint8_t	  	rx_dma_buffer[4];
+uint8_t     pwm_dma_buffer[10];
+uint8_t		  rx_dma_irq = 0;
+uint8_t		  pwm_dma_irq = 0;
+
+// Main program
+
+void main()
+{
+	// Configure System Clock
+	SystemClock_Config();
+
+	// Initialize Console
+	BSP_Console_Init();
+
+	BSP_LED_Init();
+
+	// Initialize NVIC
+	BSP_NVIC_Init();
+
+	// Initialize PB13 pin
+	BSP_PB13_Init();
+
+	// Initialize Timer for delays
+	BSP_DELAY_TIM_init();
+
+	// Initialize Timer for PWM output
+	BSP_TIMER_PWM_Init(); // delete call to avoid tx
+
+	// Initialize Timer for Input Capture
+	BSP_TIMER_IC_Init();
+
+	counter_value = 0;
+	flag = 0;
+
+	while(1)
+	{
+		flag = 0;
+		switch(pwm_dma_irq)
+		{
+			case 1:	// Half Transfer (HT) Interruption Occurred
+			{
+				value = pwm_dma_buffer[0];
+				for(uint8_t i = 1; i < 10; i++)
+				{
+					if(pwm_dma_buffer[i] <= value * 1.05 && pwm_dma_buffer[i] >= value * 0.95)
+					{
+						value = (value + pwm_dma_buffer[i])/2;
+					}
+					else
+					{
+						pwm_dma_irq = 0;
+					}
+				}
+
+				pwm_dma_irq = 0;
+				break;
+			}
+
+			case 2:	// Transfer Complete (TC) Interruption Occurred
+			{
+				// Display bytes [4-7]
+				for (index=4; index<8; index++)
+				{
+				  while ( (USART2->ISR & USART_ISR_TC) != USART_ISR_TC);
+				  USART2->TDR = rx_dma_buffer[index];
+				}
+
+				pwm_dma_irq = 0;
+				break;
+			}
+		}
+
+
+		// Delete this part if you want pure rx
+		if(rx_dma_irq == 1)
+		{
+			// get new value
+			uint32_t new_valuePWM = 0;
+			for (int index=0; index<4; index++)
+			{
+				new_valuePWM += (rx_dma_buffer[3 - index] - '0') * power(10, index);
+				TIM1->CCR2 = new_valuePWM;
+			}
+
+			rx_dma_irq = 0;
+		}
+
+
+		/*
+
+	  // Report TIM3 status (CNT, CCR1 and CCR2 registers)
+	  my_printf("\r \n CNT->%05d Start->%05d l"
+			  "length->%05d\r \n", TIM3->CNT, TIM3->CCR1, TIM3->CCR2 );
+
+	  // Wait for 100ms
+	  BSP_DELAY_TIM_ms(100);
+	  */
+	}
+}
+
+
+static uint32_t power(uint32_t number, uint32_t power_wanted)
+{
+	uint32_t value = 1;
+	for(uint8_t i = 0; i < power_wanted; i++)
+	{
+		value *= number;
+	}
+	return value;
+}
+
+
+/*
+ * 	Clock configuration for the Nucleo STM32F072RB board
+ * 	HSE input Bypass Mode 			-> 8MHz
+ * 	SYSCLK, AHB, APB1 				-> 48MHz
+ *  	PA8 as MCO with /16 prescaler 		-> 3MHz
+ *
+ *  Laurent Latorre - 05/08/2017
+ */
+
+static void SystemClock_Config()
+{
+	uint32_t	HSE_Status;
+	uint32_t	PLL_Status;
+	uint32_t	SW_Status;
+	uint32_t	timeout = 0;
+
+	timeout = 1000000;
+
+	// Start HSE in Bypass Mode
+	RCC->CR |= RCC_CR_HSEBYP;
+	RCC->CR |= RCC_CR_HSEON;
+
+	// Wait until HSE is ready
+	do
+	{
+		HSE_Status = RCC->CR & RCC_CR_HSERDY_Msk;
+		timeout--;
+	} while ((HSE_Status == 0) && (timeout > 0));
+
+	// Select HSE as PLL input source
+	RCC->CFGR &= ~RCC_CFGR_PLLSRC_Msk;
+	RCC->CFGR |= (0x02 <<RCC_CFGR_PLLSRC_Pos);
+
+	// Set PLL PREDIV to /1
+	RCC->CFGR2 = 0x00000000;
+
+	// Set PLL MUL to x6
+	RCC->CFGR &= ~RCC_CFGR_PLLMUL_Msk;
+	RCC->CFGR |= (0x04 <<RCC_CFGR_PLLMUL_Pos);
+
+	// Enable the main PLL
+	RCC-> CR |= RCC_CR_PLLON;
+
+	// Wait until PLL is ready
+	do
+	{
+		PLL_Status = RCC->CR & RCC_CR_PLLRDY_Msk;
+		timeout--;
+	} while ((PLL_Status == 0) && (timeout > 0));
+
+        // Set AHB prescaler to /1
+	RCC->CFGR &= ~RCC_CFGR_HPRE_Msk;
+	RCC->CFGR |= RCC_CFGR_HPRE_DIV1;
+
+	//Set APB1 prescaler to /1
+	RCC->CFGR &= ~RCC_CFGR_PPRE_Msk;
+	RCC->CFGR |= RCC_CFGR_PPRE_DIV1;
+
+	// Enable FLASH Prefetch Buffer and set Flash Latency
+	FLASH->ACR = FLASH_ACR_PRFTBE | FLASH_ACR_LATENCY;
+
+	/* --- Until this point, MCU was still clocked by HSI at 8MHz ---*/
+	/* --- Switching to PLL at 48MHz Now!  Fasten your seat belt! ---*/
+
+	// Select the main PLL as system clock source
+	RCC->CFGR &= ~RCC_CFGR_SW;
+	RCC->CFGR |= RCC_CFGR_SW_PLL;
+
+	// Wait until PLL becomes main switch input
+	do
+	{
+		SW_Status = (RCC->CFGR & RCC_CFGR_SWS_Msk);
+		timeout--;
+	} while ((SW_Status != RCC_CFGR_SWS_PLL) && (timeout > 0));
+
+	/* --- Here we go! ---*/
+
+	/*--- Use PA8 as MCO output at 48/16 = 3MHz ---*/
+
+	// Set MCO source as SYSCLK (48MHz)
+	RCC->CFGR &= ~RCC_CFGR_MCO_Msk;
+	RCC->CFGR |=  RCC_CFGR_MCOSEL_SYSCLK;
+
+	// Set MCO prescaler to /16 -> 3MHz
+	RCC->CFGR &= ~RCC_CFGR_MCOPRE_Msk;
+	RCC->CFGR |=  RCC_CFGR_MCOPRE_DIV16;
+
+	// Enable GPIOA clock
+	RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
+
+	// Configure PA8 as Alternate function
+	GPIOA->MODER &= ~GPIO_MODER_MODER8_Msk;
+	GPIOA->MODER |= (0x02 <<GPIO_MODER_MODER8_Pos);
+
+	// Set to AF0 (MCO output)
+	GPIOA->AFR[1] &= ~(0x0000000F);
+	GPIOA->AFR[1] |=  (0x00000000);
+
+	// Update SystemCoreClock global variable
+	SystemCoreClockUpdate();
+}

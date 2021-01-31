@@ -24,13 +24,13 @@ static void SystemClock_Config(void);
 static uint32_t power(uint32_t number, uint32_t power_wanted);
 
 // Global variables
-uint8_t counter_value;
-uint16_t last_length;
 uint16_t value;
 uint8_t flag;
 
 uint8_t	  	rx_dma_buffer[4];
+uint8_t     pwm_dma_buffer[10];
 uint8_t		  rx_dma_irq = 0;
+uint8_t		  pwm_dma_irq = 0;
 
 // Main program
 
@@ -59,39 +59,57 @@ void main()
 	// Initialize Timer for Input Capture
 	BSP_TIMER_IC_Init();
 
-	counter_value = 0;
-	last_length = 0;
-	flag = 0;
+
 
 	while(1)
 	{
-		if(flag == 1)
+		flag = 1;
+		switch(pwm_dma_irq)
 		{
-			flag = 0;
-			value = TIM3->CCR2;
-			if(last_length <= 1.05*value && last_length >= 0.95*value)
+			case 1:	// Half Transfer (HT) Interruption Occurred
 			{
-				counter_value++;
+				value = pwm_dma_buffer[0];
+				for(uint8_t i = 1; i < 10; i++)
+				{
+					if(pwm_dma_buffer[i] <= value * 1.05 && pwm_dma_buffer[i] >= value * 0.95)
+					{
+						value = (value + pwm_dma_buffer[i])/2;
+					}
+					else
+					{
+						flag = 0;
+						break;
+					}
+				}
+
+				pwm_dma_irq = 0;
+				if(flag == 1) my_printf("%05d", value);
+				break;
 			}
 
-			else
+			case 2:	// Transfer Complete (TC) Interruption Occurred
 			{
-				last_length = value;
-				counter_value = 0;
-			}
+				value = pwm_dma_buffer[10];
+				for(uint8_t i = 11; i < 20; i++)
+				{
+					if(pwm_dma_buffer[i] <= value * 1.05 && pwm_dma_buffer[i] >= value * 0.95)
+					{
+						value = (value + pwm_dma_buffer[i])/2;
+					}
+					else
+					{
+						flag = 0;
+					}
+				}
 
-
-			if(counter_value >= 10)
-			{
-				my_printf("%05d", value);
-				counter_value = 0;
-				value = 0;
-				BSP_LED_On();
-				BSP_DELAY_ms(5000);
-				BSP_LED_Off();
-				flag = 0;
+				pwm_dma_irq = 0;
+				if(flag == 1) my_printf("%05d", value);
+				break;
 			}
 		}
+
+
+
 
 		// Delete this part if you want pure rx
 		if(rx_dma_irq == 1)
@@ -106,17 +124,6 @@ void main()
 
 			rx_dma_irq = 0;
 		}
-
-
-		/*
-
-	  // Report TIM3 status (CNT, CCR1 and CCR2 registers)
-	  my_printf("\r \n CNT->%05d Start->%05d l"
-			  "length->%05d\r \n", TIM3->CNT, TIM3->CCR1, TIM3->CCR2 );
-
-	  // Wait for 100ms
-	  BSP_DELAY_TIM_ms(100);
-	  */
 	}
 }
 

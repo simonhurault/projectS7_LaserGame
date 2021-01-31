@@ -148,8 +148,34 @@ void EXTI4_15_IRQHandler()
 
 
 /*
- * This function handles DMA1 Channel 5 (USART2 RX) interrupts
+ * This function handles DMA1 Channel 2 (TIM3 capture mode) interrupts
  */
+extern uint8_t	pwm_dma_irq;
+void DMA1_Channel2_3_IRQHandler()
+{
+	// Test for Channel 2 Half Transfer
+	if ((DMA1->ISR & DMA_ISR_HTIF2) == DMA_ISR_HTIF2)
+	{
+		// Clear the interrupt pending bit
+		DMA1->IFCR |= DMA_IFCR_CHTIF2;
+
+		// Set global variable
+		pwm_dma_irq = 1;
+	}
+
+	// Test for Channel 2 Transfer Complete
+	if ((DMA1->ISR & DMA_ISR_TCIF2) == DMA_ISR_TCIF2)
+	{
+		// Clear the interrupt pending bit
+		DMA1->IFCR |= DMA_IFCR_CTCIF2;
+
+		// Set global variable
+		pwm_dma_irq = 2;
+	}
+}
+
+
+
 
 /*
  * This function handles DMA1 Channel 5 (USART2 RX) interrupts
