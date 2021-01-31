@@ -36,32 +36,14 @@ void main()
 	// Initialize Console
 	BSP_Console_Init();
 
-	// Initialize push button as input
-	BSP_PB_Init();
-
 	// Initialize Timer for PWM output
 	BSP_TIMER_PWM_Init();
 
 	// Initialize NVIC
 	BSP_NVIC_Init();
 
-
-
 	while(1)
 	{
-
-		if(BSP_PB_GetState() == 1)
-		{
-			// Enable Outputs
-			TIM1->CCER |= TIM_CCER_CC1E | TIM_CCER_CC2E;
-		}
-		else
-		{
-			// Disable Outputs
-			TIM1->CCER &= ~(TIM_CCER_CC1E | TIM_CCER_CC2E);
-		}
-
-		// Change PWM valuye if the flag is raised by dma interrupt
 		if(rx_dma_irq == 1)
 		{
 			// get new value

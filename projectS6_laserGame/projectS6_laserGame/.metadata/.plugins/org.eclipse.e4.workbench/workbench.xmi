@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_Bu764V-wEeumc9qQ0Auwvg" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_Bu764l-wEeumc9qQ0Auwvg" bindingContexts="_Bu765F-wEeumc9qQ0Auwvg">
+<<<<<<< HEAD
   <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;bsp.c&quot; tooltip=&quot;D:\cours\mea4\projetS7\projectS6_laserGame\projectS6_laserGame\laserGame_tx\bsp\src\bsp.c&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/D:/cours/mea4/projetS7/projectS6_laserGame/projectS6_laserGame/laserGame_tx/bsp/src/bsp.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;main.c&quot; tooltip=&quot;D:\cours\mea4\projetS7\projectS6_laserGame\projectS6_laserGame\laserGame_tx\app\src\main.c&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/D:/cours/mea4/projetS7/projectS6_laserGame/projectS6_laserGame/laserGame_tx/app/src/main.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;main.c&quot; tooltip=&quot;laserGame_tx/app/src/main.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/laserGame_tx/app/src/main.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;bsp.c&quot; tooltip=&quot;laserGame_tx/bsp/src/bsp.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/laserGame_tx/bsp/src/bsp.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;stm32f0xx_it.c&quot; tooltip=&quot;laserGame_tx/app/src/stm32f0xx_it.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/laserGame_tx/app/src/stm32f0xx_it.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;stm32f0xx_it.h&quot; tooltip=&quot;laserGame_tx/app/inc/stm32f0xx_it.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/laserGame_tx/app/inc/stm32f0xx_it.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+=======
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;bsp.c&quot; tooltip=&quot;laserGame_tx/bsp/src/bsp.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/laserGame_tx/bsp/src/bsp.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;main.c&quot; tooltip=&quot;laserGame_tx/app/src/main.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/laserGame_tx/app/src/main.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;bsp.h&quot; tooltip=&quot;laserGame_tx/bsp/inc/bsp.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/laserGame_tx/bsp/inc/bsp.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;bsp.c&quot; tooltip=&quot;rx/bsp/src/bsp.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/rx/bsp/src/bsp.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;stm32f0xx_it.c&quot; tooltip=&quot;laserGame_tx/app/src/stm32f0xx_it.c&quot;>&#xD;&#xA;&lt;persistable path=&quot;/laserGame_tx/app/src/stm32f0xx_it.c&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;stm32f0xx_it.h&quot; tooltip=&quot;laserGame_tx/app/inc/stm32f0xx_it.h&quot;>&#xD;&#xA;&lt;persistable path=&quot;/laserGame_tx/app/inc/stm32f0xx_it.h&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+>>>>>>> main
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_Bu764l-wEeumc9qQ0Auwvg" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_B4LWcl-wEeumc9qQ0Auwvg" label="%trimmedwindow.label.eclipseSDK" x="0" y="0" width="1024" height="768">
@@ -94,7 +98,7 @@
               <children xsi:type="advanced:Placeholder" xmi:id="_CHHxZV-wEeumc9qQ0Auwvg" elementId="org.eclipse.ui.views.ResourceNavigator" toBeRendered="false" ref="_CG8yQV-wEeumc9qQ0Auwvg"/>
               <children xsi:type="advanced:Placeholder" xmi:id="_CHHxZl-wEeumc9qQ0Auwvg" elementId="org.eclipse.ui.views.BookmarkView" toBeRendered="false" ref="_CG8yQl-wEeumc9qQ0Auwvg"/>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_CHHxZ1-wEeumc9qQ0Auwvg" containerData="7500" selectedElement="_CHHxb1-wEeumc9qQ0Auwvg">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_CHHxZ1-wEeumc9qQ0Auwvg" containerData="7500" selectedElement="_CHHxaF-wEeumc9qQ0Auwvg">
               <children xsi:type="basic:PartSashContainer" xmi:id="_CHHxaF-wEeumc9qQ0Auwvg" containerData="7500" selectedElement="_CHHxaV-wEeumc9qQ0Auwvg" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_CHHxaV-wEeumc9qQ0Auwvg" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_CG35wF-wEeumc9qQ0Auwvg"/>
                 <children xsi:type="basic:PartStack" xmi:id="_CHHxal-wEeumc9qQ0Auwvg" elementId="topRight" containerData="2500" selectedElement="_CHHxa1-wEeumc9qQ0Auwvg">
@@ -274,12 +278,19 @@
         <tags>EditorStack</tags>
         <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_F67aMF-wEeumc9qQ0Auwvg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="main.c" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;main.c&quot; partName=&quot;main.c&quot; title=&quot;main.c&quot; tooltip=&quot;laserGame_tx/app/src/main.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/laserGame_tx/app/src/main.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1147&quot; selectionTopPixel=&quot;675&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;main.c&quot; partName=&quot;main.c&quot; title=&quot;main.c&quot; tooltip=&quot;laserGame_tx/app/src/main.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/laserGame_tx/app/src/main.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;711&quot; selectionTopPixel=&quot;210&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
+          <tags>removeOnHide</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_NK2FIGF_EeuIKrroBOHOtg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="stm32f0xx_it.c" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;stm32f0xx_it.c&quot; partName=&quot;stm32f0xx_it.c&quot; title=&quot;stm32f0xx_it.c&quot; tooltip=&quot;laserGame_tx/app/src/stm32f0xx_it.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/laserGame_tx/app/src/stm32f0xx_it.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;14&quot; selectionOffset=&quot;1028&quot; selectionTopPixel=&quot;311&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_UyZS0F-yEeu9qbvo4KcuEQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="bsp.c" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
+<<<<<<< HEAD
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;bsp.c&quot; partName=&quot;bsp.c&quot; title=&quot;bsp.c&quot; tooltip=&quot;laserGame_tx/bsp/src/bsp.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/laserGame_tx/bsp/src/bsp.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;4176&quot; selectionTopPixel=&quot;2370&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
@@ -293,11 +304,20 @@
         </children>
         <children xsi:type="basic:Part" xmi:id="_ZV8RIGIQEeuyXNRS8PS06Q" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="bsp.c" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;bsp.c&quot; partName=&quot;bsp.c&quot; title=&quot;bsp.c&quot; tooltip=&quot;D:\cours\mea4\projetS7\projectS6_laserGame\projectS6_laserGame\laserGame_tx\bsp\src\bsp.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/D:/cours/mea4/projetS7/projectS6_laserGame/projectS6_laserGame/laserGame_tx/bsp/src/bsp.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;4253&quot; selectionTopPixel=&quot;2325&quot;/>&#xD;&#xA;&lt;/editor>"/>
+=======
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;bsp.c&quot; partName=&quot;bsp.c&quot; title=&quot;bsp.c&quot; tooltip=&quot;laserGame_tx/bsp/src/bsp.c&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/laserGame_tx/bsp/src/bsp.c&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;4525&quot; selectionTopPixel=&quot;2876&quot;/>&#xD;&#xA;&lt;/editor>"/>
+>>>>>>> main
           <tags>Editor</tags>
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
           <tags>removeOnHide</tags>
           <tags>active</tags>
           <tags>activeOnClose</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_K2wl0GGDEeuIKrroBOHOtg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="bsp.h" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/obj16/c_file_obj.gif" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.cdt.ui.editor.CEditor&quot; name=&quot;bsp.h&quot; partName=&quot;bsp.h&quot; title=&quot;bsp.h&quot; tooltip=&quot;laserGame_tx/bsp/inc/bsp.h&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/laserGame_tx/bsp/inc/bsp.h&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;285&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
+          <tags>removeOnHide</tags>
         </children>
       </children>
     </sharedElements>
@@ -613,7 +633,11 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_B-y701-wEeumc9qQ0Auwvg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_EaOFIGIQEeuyXNRS8PS06Q" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_BvPc7l-wEeumc9qQ0Auwvg"/>
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_FOocgGF_EeuIKrroBOHOtg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_BvPc7l-wEeumc9qQ0Auwvg"/>
+>>>>>>> main
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_B-zi4F-wEeumc9qQ0Auwvg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -637,7 +661,11 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_B-zi5F-wEeumc9qQ0Auwvg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_EaPTRGIQEeuyXNRS8PS06Q" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_BvO131-wEeumc9qQ0Auwvg"/>
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_FOqRsGF_EeuIKrroBOHOtg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_BvO131-wEeumc9qQ0Auwvg"/>
+>>>>>>> main
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_B-zi5V-wEeumc9qQ0Auwvg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
