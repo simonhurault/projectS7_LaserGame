@@ -1,24 +1,427 @@
-18:20:49 **** Incremental Build of configuration Debug for project laser_game_rx ****
+13:11:18 **** Incremental Build of configuration Debug for project laser_game_rx ****
 Info: Internal Builder is used for build
-arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
 ..\app\src\main.c:37:6: warning: return type of 'main' is not 'int' [-Wmain]
  void main()
       ^~~~
 ..\app\src\main.c: In function 'main':
-..\app\src\main.c:57:2: warning: implicit declaration of function 'BSP_TIMER_PWM_Init' [-Wimplicit-function-declaration]
-  BSP_TIMER_PWM_Init(); // delete call to avoid tx
-  ^~~~~~~~~~~~~~~~~~
-..\app\src\main.c:86:19: warning: implicit declaration of function 'my_printf' [-Wimplicit-function-declaration]
-     if(flag == 1) my_printf("%05d", value);
-                   ^~~~~~~~~
-arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
-arm-atollic-eabi-gcc -c ..\app\src\stm32f0xx_it.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -ID:\cours\mea4\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\stm32f0xx_it.o 
-arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TD:\cours\mea4\projetS7\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
-D:\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar D:\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+..\app\src\main.c:67:3: warning: implicit declaration of function 'my_printf' [-Wimplicit-function-declaration]
+   my_printf("%05d", TIM3->CCR3);
+   ^~~~~~~~~
+At top level:
+..\app\src\main.c:133:17: warning: 'power' defined but not used [-Wunused-function]
+ static uint32_t power(uint32_t number, uint32_t power_wanted)
+                 ^~~~~
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
-   8120	     16	    180	   8316	   207c	laser_game_rx.elf
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for laser_game_rx
+13:12:33 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
+..\app\src\main.c:37:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main()
+      ^~~~
+..\app\src\main.c: In function 'main':
+..\app\src\main.c:67:3: warning: implicit declaration of function 'my_printf' [-Wimplicit-function-declaration]
+   my_printf("%05d", TIM3->CCR2);
+   ^~~~~~~~~
+At top level:
+..\app\src\main.c:133:17: warning: 'power' defined but not used [-Wunused-function]
+ static uint32_t power(uint32_t number, uint32_t power_wanted)
+                 ^~~~~
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:15:40 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
+..\app\src\main.c:37:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main()
+      ^~~~
+..\app\src\main.c: In function 'main':
+..\app\src\main.c:67:3: warning: implicit declaration of function 'my_printf' [-Wimplicit-function-declaration]
+   my_printf("%05d", TIM3->CCR2);
+   ^~~~~~~~~
+At top level:
+..\app\src\main.c:133:17: warning: 'power' defined but not used [-Wunused-function]
+ static uint32_t power(uint32_t number, uint32_t power_wanted)
+                 ^~~~~
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:17:37 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7888	     16	    192	   8096	   1fa0	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:18:06 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
+..\app\src\main.c:37:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main()
+      ^~~~
+..\app\src\main.c: In function 'main':
+..\app\src\main.c:67:3: warning: implicit declaration of function 'my_printf' [-Wimplicit-function-declaration]
+   my_printf("%05d\n", TIM3->CCR2);
+   ^~~~~~~~~
+At top level:
+..\app\src\main.c:133:17: warning: 'power' defined but not used [-Wunused-function]
+ static uint32_t power(uint32_t number, uint32_t power_wanted)
+                 ^~~~~
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7900	     16	    192	   8108	   1fac	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:21:14 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7900	     16	    192	   8108	   1fac	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for laser_game_rx
+13:25:06 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7900	     16	    192	   8108	   1fac	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:29:01 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8052	     16	    192	   8260	   2044	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:29:46 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8052	     16	    192	   8260	   2044	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:30:25 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8052	     16	    192	   8260	   2044	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for laser_game_rx
+13:32:55 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8052	     16	    192	   8260	   2044	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:38:38 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8056	     16	    192	   8264	   2048	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:39:48 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\app\src\stm32f0xx_it.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\stm32f0xx_it.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:41:08 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -c ..\app\src\stm32f0xx_it.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\stm32f0xx_it.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for laser_game_rx
+13:42:17 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:43:03 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:43:29 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
+..\app\src\main.c:37:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main()
+      ^~~~
+..\app\src\main.c: In function 'main':
+..\app\src\main.c:67:3: warning: implicit declaration of function 'my_printf' [-Wimplicit-function-declaration]
+   my_printf("%05d\n", TIM3->CCR4);
+   ^~~~~~~~~
+At top level:
+..\app\src\main.c:133:17: warning: 'power' defined but not used [-Wunused-function]
+ static uint32_t power(uint32_t number, uint32_t power_wanted)
+                 ^~~~~
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:49:16 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:50:06 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
+..\app\src\main.c:37:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main()
+      ^~~~
+..\app\src\main.c: In function 'main':
+..\app\src\main.c:67:3: warning: implicit declaration of function 'my_printf' [-Wimplicit-function-declaration]
+   my_printf("%05d\n", TIM3->CCR1);
+   ^~~~~~~~~
+At top level:
+..\app\src\main.c:133:17: warning: 'power' defined but not used [-Wunused-function]
+ static uint32_t power(uint32_t number, uint32_t power_wanted)
+                 ^~~~~
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:50:24 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
+..\app\src\main.c:37:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main()
+      ^~~~
+..\app\src\main.c: In function 'main':
+..\app\src\main.c:67:3: warning: implicit declaration of function 'my_printf' [-Wimplicit-function-declaration]
+   my_printf("%05d\n", TIM3->CCR2);
+   ^~~~~~~~~
+At top level:
+..\app\src\main.c:133:17: warning: 'power' defined but not used [-Wunused-function]
+ static uint32_t power(uint32_t number, uint32_t power_wanted)
+                 ^~~~~
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:50:42 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
+..\app\src\main.c:37:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main()
+      ^~~~
+..\app\src\main.c: In function 'main':
+..\app\src\main.c:67:3: warning: implicit declaration of function 'my_printf' [-Wimplicit-function-declaration]
+   my_printf("%05d\n", TIM3->CCR3);
+   ^~~~~~~~~
+At top level:
+..\app\src\main.c:133:17: warning: 'power' defined but not used [-Wunused-function]
+ static uint32_t power(uint32_t number, uint32_t power_wanted)
+                 ^~~~~
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:51:43 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -c ..\app\src\main.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o app\src\main.o 
+..\app\src\main.c:37:6: warning: return type of 'main' is not 'int' [-Wmain]
+ void main()
+      ^~~~
+..\app\src\main.c: In function 'main':
+..\app\src\main.c:67:3: warning: implicit declaration of function 'my_printf' [-Wimplicit-function-declaration]
+   my_printf("%05d\n", TIM3->CCR4);
+   ^~~~~~~~~
+At top level:
+..\app\src\main.c:133:17: warning: 'power' defined but not used [-Wunused-function]
+ static uint32_t power(uint32_t number, uint32_t power_wanted)
+                 ^~~~~
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
+Print size information done
+Generate listing file
+Output sent to: laser_game_rx.list
+Generate listing file done
+Generate build reports done
+13:52:06 **** Incremental Build of configuration Debug for project laser_game_rx ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\bsp\src\bsp.c -mthumb -mcpu=cortex-m0 -std=gnu11 -DSTM32F072xB -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\app\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\bsp\inc -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\core -IP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\cmsis\device\inc -O0 -g -fstack-usage -Wall -specs=nano.specs -o bsp\src\bsp.o 
+arm-atollic-eabi-gcc -o laser_game_rx.elf app\src\main.o app\src\printf-stdarg.o app\src\stm32f0xx_it.o bsp\src\bsp.o bsp\src\delay.o cmsis\device\src\startup_stm32f072xb.o cmsis\device\src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -TP:\mea4\S7\projet_laser_game\projectS7_LaserGame\projectS6_laserGame\projectS6_laserGame\rx_workspace\laser_game_rx\Debug_STM32F072RB_FLASH.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=laser_game_rx.map -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\stm32\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\stm32\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list laser_game_rx.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8040	     16	    192	   8248	   2038	laser_game_rx.elf
 Print size information done
 Generate listing file
 Output sent to: laser_game_rx.list

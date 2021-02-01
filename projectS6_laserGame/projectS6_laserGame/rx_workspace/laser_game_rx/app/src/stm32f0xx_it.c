@@ -148,51 +148,48 @@ void EXTI4_15_IRQHandler()
 
 
 /*
- * This function handles DMA1 Channel 2 (TIM3 capture mode) interrupts
- */
-extern uint8_t	pwm_dma_irq;
+
 void DMA1_Channel2_3_IRQHandler()
 {
-	// Test for Channel 2 Half Transfer
-	if ((DMA1->ISR & DMA_ISR_HTIF2) == DMA_ISR_HTIF2)
-	{
-		// Clear the interrupt pending bit
-		DMA1->IFCR |= DMA_IFCR_CHTIF2;
 
-		// Set global variable
-		pwm_dma_irq = 1;
-	}
-
-	// Test for Channel 2 Transfer Complete
-	if ((DMA1->ISR & DMA_ISR_TCIF2) == DMA_ISR_TCIF2)
-	{
-		// Clear the interrupt pending bit
-		DMA1->IFCR |= DMA_IFCR_CTCIF2;
-
-		// Set global variable
-		pwm_dma_irq = 2;
-	}
 }
-
-
-
+*/
 
 /*
  * This function handles DMA1 Channel 5 (USART2 RX) interrupts
  */
 
 extern uint8_t	rx_dma_irq;
-
+extern uint8_t	pwm_dma_irq;
 void DMA1_Channel4_5_6_7_IRQHandler()
 {
-	// Test for Channel 5 Transfer Complete
-	if ((DMA1->ISR & DMA_ISR_TCIF5) == DMA_ISR_TCIF5)
+	// Test for Channel 4 Transfer Complete
+	if ((DMA1->ISR & DMA_ISR_TCIF4) == DMA_ISR_TCIF4)
 	{
 		// Clear the interrupt pending bit
-		DMA1->IFCR |= DMA_IFCR_CTCIF5;
+		DMA1->IFCR |= DMA_IFCR_CTCIF4;
 
 		// Set global variable
 		rx_dma_irq = 1;
+	}
+	// Test for Channel 4 Half Transfer
+	if ((DMA1->ISR & DMA_ISR_HTIF4) == DMA_ISR_HTIF4)
+	{
+		// Clear the interrupt pending bit
+		DMA1->IFCR |= DMA_IFCR_CHTIF4;
+
+		// Set global variable
+		pwm_dma_irq = 1;
+	}
+
+	// Test for Channel 2 Transfer Complete
+	if ((DMA1->ISR & DMA_ISR_TCIF3) == DMA_ISR_TCIF3)
+	{
+		// Clear the interrupt pending bit
+		DMA1->IFCR |= DMA_IFCR_CTCIF3;
+
+		// Set global variable
+		pwm_dma_irq = 2;
 	}
 }
 /**
