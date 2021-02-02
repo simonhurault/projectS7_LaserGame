@@ -125,6 +125,7 @@ uint8_t BSP_PB_GetState()
  * RX -> PA3 (AF1)
  */
 
+
 extern uint8_t rx_dma_buffer[4];
 
 void BSP_Console_Init()
@@ -199,7 +200,7 @@ void BSP_Console_Init()
 	DMA1_Channel5->CCR |= DMA_CCR_MINC;
 
 	// Set Memory Buffer size
-	DMA1_Channel5->CNDTR = 4;
+	DMA1_Channel5->CNDTR = 10;
 
 	// DMA mode is circular
 	DMA1_Channel5->CCR |= DMA_CCR_CIRC;
@@ -301,7 +302,7 @@ void BSP_TIMER_Timebase_Init()
  * Initialize Push-Button pin (PC13) as input without Pull-up/Pull-down
  * Enable EXTI13 on falling edge
  */
-
+/*
 
 void BSP_PB13_Init()
 {
@@ -330,7 +331,7 @@ void BSP_PB13_Init()
 	EXTI->RTSR &= ~EXTI_RTSR_RT13;
 	EXTI->FTSR |=  EXTI_FTSR_FT13;
 }
-
+*/
 
 /*
  * BSP_TIMER_IC_Init()
@@ -338,7 +339,7 @@ void BSP_PB13_Init()
  * Channel 1 -> PB4 (AF1)
  */
 
-extern uint8_t pwm_dma_buffer[20];
+extern uint16_t pwm_dma_buffer[20];
 void BSP_TIMER_IC_Init()
 {
 	// Enable GPIOB clock
@@ -374,8 +375,8 @@ void BSP_TIMER_IC_Init()
 	// Channel 1 input on TI1
 	TIM3->CCMR1 |= (0x01 <<TIM_CCMR1_CC1S_Pos);
 
-	// Channel 4 input also on TI1
-	TIM3->CCMR1 |= (0x04 <<TIM_CCMR1_CC2S_Pos);
+	// Channel 2 input also on TI1
+	TIM3->CCMR1 |= (0x02 <<TIM_CCMR1_CC2S_Pos);
 
 	// Filter with N=8
 	TIM3->CCMR1 |= (0x03 <<TIM_CCMR1_IC1F_Pos) | (0x03 <<TIM_CCMR1_IC2F_Pos);
@@ -384,10 +385,10 @@ void BSP_TIMER_IC_Init()
 	TIM3->CCER |= (0x00 <<TIM_CCER_CC1NP_Pos) | (0x00 <<TIM_CCER_CC1P_Pos);
 
 	// Select rising edge for channel 2
-	TIM3->CCER |= (0x00 <<TIM_CCER_CC4NP_Pos) | (0x01 <<TIM_CCER_CC4P_Pos);
+	TIM3->CCER |= (0x00 <<TIM_CCER_CC2NP_Pos) | (0x01 <<TIM_CCER_CC2P_Pos);
 
 	// Enable capture on channel 1 & channel 2
-	TIM3->CCER |= (0x01 <<TIM_CCER_CC1E_Pos) | (0x01 <<TIM_CCER_CC4E_Pos);
+	TIM3->CCER |= (0x01 <<TIM_CCER_CC1E_Pos) | (0x01 <<TIM_CCER_CC2E_Pos);
 
 	// Choose Channel 1 as trigger input
 	TIM3->SMCR |= (0x05 <<TIM_SMCR_TS_Pos);
@@ -396,9 +397,10 @@ void BSP_TIMER_IC_Init()
 	TIM3->SMCR |= (0x4 <<TIM_SMCR_SMS_Pos);
 
 
-
 	// Setup DMA config for tim3
-
+//Sends a DMA request if the corresponding enable bit is set (CCxDE bit in the
+//	TIMx_DIER register, CCDS bit in the TIMx_CR2 register for the DMA request
+//	selection).
 	// Start DMA clock
 	RCC->AHBENR |= RCC_AHBENR_DMA1EN;
 
@@ -408,8 +410,8 @@ void BSP_TIMER_IC_Init()
 	// Set direction Peripheral -> Memory
 	DMA1_Channel4->CCR &= ~DMA_CCR_DIR;
 
-	// Peripheral is TIM3 channel 1
-	DMA1_Channel4->CPAR = (uint32_t) (&(TIM3->CCR4));
+	// Peripheral is TIM3 channel 2
+	DMA1_Channel4->CPAR = (uint32_t) (&(TIM3->CCR2));
 
 	// Peripheral data size is 8-bit (byte)
 	DMA1_Channel4->CCR |= (0x00 <<DMA_CCR_PSIZE_Pos);
@@ -427,20 +429,19 @@ void BSP_TIMER_IC_Init()
 	DMA1_Channel4->CCR |= DMA_CCR_MINC;
 
 	// Set Memory Buffer size
-	DMA1_Channel4->CNDTR = 20;
+	DMA1_Channel4->CNDTR = 4;
 
 	// DMA mode is circular
 	DMA1_Channel4->CCR |= DMA_CCR_CIRC;
 
-	// Enable DMA HT et TC interrupts
+	// Enable DMA HT and TC interrupts
 	DMA1_Channel4->CCR |= DMA_CCR_HTIE | DMA_CCR_TCIE;
 
 	// Enable DMA1 Channel 4
 	DMA1_Channel4->CCR |= DMA_CCR_EN;
 
 	// Enable USART2 DMA Request on RX
-	TIM3->DIER |= TIM_DIER_TDE;
-
+	TIM3->DIER |= TIM_DIER_CC1DE;
 
 	// Enable TIM3
 	TIM3->CR1 |= TIM_CR1_CEN;
@@ -456,23 +457,13 @@ void BSP_TIMER_IC_Init()
 
 void BSP_NVIC_Init()
 {
-	// Set maximum priority for EXTI line 4 to 15 interrupts
-	NVIC_SetPriority(EXTI4_15_IRQn, 0);
-
-	// Enable EXTI line 4 to 15 (user button on line 13) interrupts
-	NVIC_EnableIRQ(EXTI4_15_IRQn);
 
 	// Set priority level 2 for DMA1_Channel5 interrupts
-	NVIC_SetPriority(DMA1_Channel4_5_6_7_IRQn, 2);
+	NVIC_SetPriority(DMA1_Channel4_5_6_7_IRQn, 0);
 
 	// Enable DMA1_Channel5 interrupts
 	NVIC_EnableIRQ(DMA1_Channel4_5_6_7_IRQn);
 
-	// Set priority level 1 for DMA1_Channel2 interrupts
-	NVIC_SetPriority(DMA1_Channel2_3_IRQn, 1);
-
-	// Enable DMA1_Channel5 interrupts
-	NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
 }
 
 
